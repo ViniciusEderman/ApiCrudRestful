@@ -3,6 +3,11 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+var Produto = require('./app/models/product');
+
+// connect mongodb
+mongoose.connect('mongodb+srv://admin:<KsaS4UXtQyLZQNHK>@cluster0.xmvpd.mongodb.net/?retryWrites=true&w=majority');
 
 // app vai utilizar bodyParser
 // app = bodyParser
