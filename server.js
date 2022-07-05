@@ -7,10 +7,17 @@ const mongoose = require('mongoose');
 const product = require('./app/models/product');
 
 // connect mongodb
-/*mongoose.connect('mongodb+srv://admin:KsaS4UXtQyLZQNHK@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority', {
-    useMongoClient: true
-    
-});*/
+/*mongoose.connect("mongodb:;;localhost:8000/", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}, (err) => {
+    if(err) {
+        console.log(err);
+    }
+    else {
+        console.log("Connect db");
+    }
+}); */
 
 
 // app vai utilizar bodyParser
