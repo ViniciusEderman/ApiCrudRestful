@@ -7,9 +7,11 @@ const mongoose = require('mongoose');
 var Produto = require('./app/models/product');
 
 // connect mongodb
-/*mongoose.connect('mongodb+srv://admin:<KsaS4UXtQyLZQNHK>@cluster0.xmvpd.mongodb.net/?retryWrites=true&w=majority', {
+/*mongoose.connect('mongodb+srv://admin:<KsaS4UXtQyLZQNHK>@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority', {
     useMongoClient: true
-}); */
+    
+});*/ 
+
 
 // app vai utilizar bodyParser
 // app = bodyParser
