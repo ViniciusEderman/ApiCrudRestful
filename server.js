@@ -4,13 +4,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-var Produto = require('./app/models/product');
+const product = require('./app/models/product');
 
 // connect mongodb
-/*mongoose.connect('mongodb+srv://admin:<KsaS4UXtQyLZQNHK>@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority', {
+/*mongoose.connect('mongodb+srv://admin:KsaS4UXtQyLZQNHK@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority', {
     useMongoClient: true
     
-});*/ 
+});*/
 
 
 // app vai utilizar bodyParser
@@ -36,8 +36,20 @@ router.get('/', function(req, res) {
 });
 
 //APIS:
+router.route('/products')
+    .post(function(req, res) {
+        let product = new Product();
+        product.name = req.body.name;
+        product.value = req.body.value;
+        product.note = req.body.note;
 
+        product.save(error => {
+            if(error)
+                res.send(error)
 
+            res.json({ message: 'product registered with sucefully'})    
+        })  
+});
 
 // criando um padrão para as rotas
 // create the standard for the routes
