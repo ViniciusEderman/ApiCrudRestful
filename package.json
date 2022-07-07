@@ -18,7 +18,9 @@
   "homepage": "https://github.com/ViniciusEderman/ApiCrudRestful#readme",
   "dependencies": {
     "body-parser": "^1.18.1",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "mongodb": "^4.7.0",
     "mongoose": "^6.3.8",
     "request": "^2.88.2"
   }
