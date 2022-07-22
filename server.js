@@ -2,11 +2,25 @@
 // starting de packages
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const Product = require('./app/models/product');
 
+// connect mongodb
+mongoose.connect("mongodb+srv://admin:KsaS4UXtQyLZQNHK@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
+const db = mongoose.connection;
+
+db.on("error", (error) => {
+  console.error(error);
+});
+
+db.once("open", () => {
+  console.log("Connected to the db");
+});
 
 // app vai utilizar bodyParser
 // app = bodyParser
