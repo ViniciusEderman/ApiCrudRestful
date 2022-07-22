@@ -6,21 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Product = require('./app/models/product');
 
-// connect mongodb
-const connectToDb = () => {
-  mongoose
-    .connect(
-      "mongodb+srv://admin:KsaS4UXtQyLZQNHK@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    )
-    .then(() => {
-      console.log("MongoDB Atlas Conectado");
-    })
-    .catch((err) => console.log(err));
-};
+
 
 // app vai utilizar bodyParser
 // app = bodyParser
