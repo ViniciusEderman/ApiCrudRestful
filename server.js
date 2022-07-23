@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const bodyParser = require('body-parser');
 const Product = require('./app/models/product');
-const product = require('./app/models/product');
 
 // connect mongodb
 mongoose.connect(process.env.DATABASE_URL, {
@@ -70,6 +69,17 @@ router.route('/products')
       res.send(error);
 
     res.json(products);
+  });
+});
+
+//Router: /products/:product_id (put, get and delete by id)
+router.route('/products/:product_id')
+.get(function(req, res) {
+  Product.findById(req.params.product_id, function(error, product) {
+    if(error)
+      res.send(error);
+    
+    res.json(product);
   });
 });
 
