@@ -49,7 +49,7 @@ router.get('/', function(req, res) {
 
 
 //APIS:
-router.route('/product')
+router.route('/products')
     .post(function(req, res) {
         const product = new Product();
         product.name = req.body.name;
@@ -60,18 +60,16 @@ router.route('/product')
             if(error)
                 res.send(error)
 
-            res.json({ message: 'product registered with sucefully'})    
+            res.json({ message: 'product registered with sucefully' })    
         })  
 })
 //Select all products:
 .get(function(req, res) {
   Product.find(function(error, products) {
-    if(error) {
-
+    if(error) 
       res.send(error);
 
     res.json(products);
-    }
   });
 });
 
