@@ -22,28 +22,34 @@ db.once("open", () => {
   console.log("Connected to the db");
 });
 
+
 // app vai utilizar bodyParser
 // app = bodyParser
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+
 // definição da porta
 // starting the port(at the serv)
 const port = process.env.port || 8000;
+
 
 // criando uma rota utilizando o express
 // create the routes by express
 const router = express.Router();
 
+
 //middleware
-router.use(function(req, res, next) {
+/*router.use(function(req, res, next) {
     console.log('teste');
     res.end() 
-});
+}); */
+
 
 router.get('/', function(req, res) {
-    res.json({ message: 'Olá, tudo bem? Seja bem vindo!'})
+    res.json({ message: 'Hi, is started'})
 });
+
 
 //APIS:
 router.route('/product')
@@ -68,4 +74,4 @@ app.use('/api', router);
 // iniciando o serv
 // starting the serv
 app.listen(port);
-console.log(`Iniciando a aplicação na porta: ${port}`);
+console.log(`App stated at port: ${port}`);
