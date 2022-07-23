@@ -3,11 +3,12 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require("dotenv").config();
 const bodyParser = require('body-parser');
 const Product = require('./app/models/product');
 
 // connect mongodb
-mongoose.connect("mongodb+srv://admin:KsaS4UXtQyLZQNHK@cluster0.xmvpd.mongodb.net/apiRestFull?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DATABASE_UR, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
