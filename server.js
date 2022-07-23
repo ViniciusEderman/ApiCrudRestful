@@ -5,9 +5,10 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const bodyParser = require('body-parser');
 const Product = require('./app/models/product');
+const product = require('./app/models/product');
 
 // connect mongodb
-mongoose.connect(process.env.DATABASE_UR, {
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -61,6 +62,17 @@ router.route('/product')
 
             res.json({ message: 'product registered with sucefully'})    
         })  
+})
+//Select all products:
+.get(function(req, res) {
+  Product.find(function(error, products) {
+    if(error) {
+
+      res.send(error);
+
+    res.json(products);
+    }
+  });
 });
 
 // criando um padrão para as rotas
