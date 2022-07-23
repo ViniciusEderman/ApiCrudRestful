@@ -1,4 +1,3 @@
-// Iniciando os pacotes 
 // starting de packages
 const express = require('express');
 const app = express();
@@ -24,18 +23,14 @@ db.once("open", () => {
 });
 
 
-// app vai utilizar bodyParser
-// app = bodyParser
+// app using bodyParser
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 
-// definição da porta
-// starting the port(at the serv)
+// starting the server port
 const port = process.env.port || 8000;
 
-
-// criando uma rota utilizando o express
 // create the routes by express
 const router = express.Router();
 
@@ -72,7 +67,7 @@ router.route('/product')
 // create the standard for the routes
 app.use('/api', router);
 
-// iniciando o serv
+
 // starting the serv
 app.listen(port);
 console.log(`App stated at port: ${port}`);
