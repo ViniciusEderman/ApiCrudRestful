@@ -71,7 +71,6 @@ router.route('/products')
     res.json(products);
   });
 });
-
 //Router: /products/:product_id (put, get and delete by id)
 router.route('/products/:product_id')
 .get(function(req, res) {
@@ -81,7 +80,24 @@ router.route('/products/:product_id')
     
     res.json(product);
   });
-});
+})
+//router PUT:
+.put(function(req, res) {
+  Product.findById(req.params.product_id, function(error, product) {
+    if(error)
+      res.send(error);
+
+      product.name = req.body.name;
+      product.value = req.body.value;
+      product.note = req.body.note;
+
+      product.save(function(error) {
+        if(error)
+          res.send(error);
+        res.json({ message: 'Product updated' });
+      });
+  });
+})
 
 // criando um padrão para as rotas
 // create the standard for the routes
