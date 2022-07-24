@@ -98,6 +98,18 @@ router.route('/products/:product_id')
       });
   });
 })
+// router delete:
+.delete(function(req, res) {
+  Product.remove({
+    _id: req.params.product_id
+  },function(error) {
+    if(error)
+      res.send(error);
+
+    res.json({ message: 'The product is deleted' });
+  }
+  );
+});
 
 // criando um padrão para as rotas
 // create the standard for the routes
